@@ -13,3 +13,455 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    --width: 720px;
+    --font-main: 'Inter', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+    --font-scale: 1em;
+    --background-color: #FFFFFF;
+    --heading-color: #1C1C1C;
+    --text-color: #1C1C1C;
+    --link-color: rgb(37 99 235);
+    --visited-color: #464646;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  	--hover-color: #F4F4F5;
+}
+
+/*
+    --link-color: rgb(37 99 235);
+    --visited-color: #464646;
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: rgb(0,0,0);
+        --heading-color: #FFFFFF;
+        --text-color: #FFFFFF;
+        --link-color: rgb(37 99 235);
+        --visited-color:  #6133cc;
+        --code-background-color: #000;
+        --code-color: #ddd;
+        --blockquote-color: #ccc;
+      	--hover-color: #19191a;
+    }
+}
+*/
+
+/*NOTES
+sexy blue: rgb(37 99 235);
+#3b82f6
+#2564eb (rgb to hex)
+
+dark mode hover:
+#19191a - better w dark black
+
+black bg: 
+white text: rgb(245 245 245)
+gray text: rgb(82 82 82)
+visited link: #733bf5 rgb(97, 38, 235)
+
+PG link color: #000099
+PG visited link: #464646
+
+light mode:
+    --heading-color: #1C1C1C;
+    --text-color: #1C1C1C;
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #1D1D1E;
+        --heading-color: #FFFFFF;
+        --text-color: #FFFFFF;
+        --link-color: #8cc2dd;
+        --visited-color:  #8b6fcb;
+        --code-background-color: #000;
+        --code-color: #ddd;
+        --blockquote-color: #ccc;
+      	--hover-color: #2F2F30;
+    }
+}
+*/
+
+body {
+    font-family: var(--font-main);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 0px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  	text-align: center;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  	font-weight: 600;
+}
+
+a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; 
+}
+
+nav p {
+    display: flex;
+  	justify-content: space-around;
+}
+
+
+strong, b {
+    color: var(--heading-color);
+}
+
+button {
+    margin: 0;
+    cursor: pointer;
+}
+
+time {
+ 	font-family: var(--font-main);
+  	font-style: normal;
+  	font-size: 15px;
+}
+
+main {
+    line-height: 1.7777778;
+  	min-width: 50%;
+}
+
+table {
+    width: 100%;
+}
+
+hr {
+    border: 0;
+    border-top: 1px dashed;
+}
+
+img {
+    max-width: 100%;
+}
+
+code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+}
+
+blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+}
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+  	margin-top: auto;
+  	margin-bottom: 0px;
+}
+
+.title:hover {
+    text-decoration: none;
+}
+
+.title h1{
+    font-size: 1.5em;
+  	margin-top: 40vh;
+}
+
+.inline {
+    width: auto !important;
+}
+
+.highlight, .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+}
+
+
+/* blog post list */
+ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  	display: flex;
+  	flex-direction: column-reverse;
+  	
+  	align-items: center;
+  	width: 100%;
+}
+
+ul.blog-posts li {
+    display: flex;
+  	min-width: 100%;
+  	flex-direction: row-reverse;
+  	justify-content: space-between;
+  	align-items: center;
+  	
+  	padding: 0px 2px;
+  	margin: 0px 6px;
+  	border: 0px solid transparent;
+}
+
+ul.blog-posts li:hover {
+  	border-radius: 4px;
+  	border-color: var(--hover-color);
+  	border: 0px solid;
+  	background-color: var(--hover-color);
+}
+
+ul.blog-posts li span {
+    margin-left: 8px;
+}
+ul.blog-posts li a {
+    text-decoration: underline;
+}
+ul.blog-posts li a:visited {
+    color: var(--visited-color);
+}
+
+/*POSTs CSS*/
+.post h1{
+  margin-top: 32px;
+}
+
+.post main{
+  max-width: 40vw;
+  text-align: left;
+}
+
+.post main h1{
+  margin-top: 16px;
+}
+
+.post main p i time{
+  padding-bottom: 32px;
+  font-size: medium;
+}
+
+.post main p {
+  font-size: medium;
+}
+
+.post a.title:hover {
+    color: rgb(37 99 235); 
+    transition: color 0s ease;
+}
+
+.post ol li {
+  	font-size: small;
+}
+
+.post ol li p{
+  	font-size: small;
+}
+
+.footnotes {
+    margin-top: 100px;
+}
+
+.footnotes ol {
+    list-style: none; /* Remove the default numbering */
+    padding-left: 0; /* Remove padding from the list */
+    counter-reset: footnote; /* Reset the counter for footnotes */
+}
+
+.footnotes ol li {
+    counter-increment: footnote; /* Increment the footnote number */
+    margin-bottom: 10px; /* Add some spacing between footnotes */
+	display: block; /*makes it start new line after every footnote*/
+}
+
+.footnotes ol li::before {
+    content: "[" counter(footnote) "] "; /* Add the footnote number */
+    display: inline; /* Keep the footnote number inline with the text */
+    margin-right: 5px; /* Add space between the number and the text */
+}
+
+.footnotes ol li p {
+    display: inline; /* Keep the paragraph inline with the list item */
+    margin: 0; /* Remove default paragraph margins */
+}
+
+
+/*Slow color change
+.home h1 {
+    animation: slowColorChange 3s ease-in-out infinite alternate;
+}
+
+@keyframes slowColorChange {
+    from {
+        color: #1C1C1C;
+    }
+    to {
+        color: rgb(37 99 235);
+    }
+}
+*/
+
+/* Slow Float forever (hover or nah)
+.home h1 {
+    animation: gentleShift 4s ease-in-out infinite alternate;
+}
+
+@keyframes gentleShift {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-5px);
+    }
+}
+*/
+
+@media (max-width: 576px) {
+
+  body {
+        font-size: medium;
+    	padding: 0px 8px;
+    	height: 100%;
+    	min-height: -webkit-fill-available;
+	}
+  
+  .home main {
+   	display: flex;
+    justify-content: center;
+  }
+  
+  
+  .title {
+    font-size: 1.5em;
+  	margin-top: 35vh;
+}
+  
+  .post h1{
+  margin-top: 28px;
+}
+  
+ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  	display: flex;
+  	flex-direction: column;
+  	max-width: 90%;
+  	align-items: center;
+}
+  
+  ul.blog-posts li span {
+    margin-left: 8px;
+    text-align: left;
+	}
+  
+  .post main{
+  	max-width: 85vw;
+  	text-align: left;
+	}
+  .post main p i time{
+  padding-bottom: 32px;
+  font-size: medium;
+	}
+  .post main p i {
+    padding-left: 0px;
+  }
+  .post main p {
+  font-size: medium;
+	}
+  ul.blog-posts li a {
+    text-decoration: underline;
+    display:block;
+    overflow-wrap: normal;
+    max-width: 60%;
+    text-align: left;
+}
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: var(--link-color);
+  border-color: var(--link-color);
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.article_date {
+    text-align: left;
+    display: block;
+    width: 100%;
+  }
+  

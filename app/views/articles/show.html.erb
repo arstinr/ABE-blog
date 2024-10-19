@@ -1,19 +1,26 @@
-<h1><%= @article.title %></h1>
+<div class="post">
+  <h1><%= link_to "arstin's thoughts", articles_path, class: "title" %></h1>
 
-<p><%= @article.body %></p>
+  <main>
+    <h1><%= @article.title %></h1>
+    <p class="article_date"><i><time datetime="<%= @article.created_at %>"><%= @article.created_at.strftime("%b %Y") %></time></i></p>
+    <%= @article.body %>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+    <nav>
+      <p>
+        <%= link_to "Edit", edit_article_path(@article) %> |
+        <%= link_to "Destroy", article_path(@article), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %>
+      </p>
+    </nav>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+    <hr>
+    <h2>Comments</h2>
+    <%= render @article.comments %>
 
-<h2>Add a comment</h2>
-<%= render "comments/form", article: @article %>
-              
-<%= link_to "Home", articles_path%>
+    <h3>Add a comment</h3>
+    <%= render "comments/form", article: @article %>
+  </main>
+</div>
