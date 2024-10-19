@@ -1,29 +1,27 @@
 # add form partial to new and edit
-<%= form_with model: article do |form| %>
-    <div>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-      <% article.errors.full_messages_for(:title).each do |message| %>
-        <div><%= message %></div>
-      <% end %>
-    </div>
-  
-    <div>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %><br>
-      <% article.errors.full_messages_for(:body).each do |message| %>
-        <div><%= message %></div>
-      <% end %>
-    </div>
+<%= form_with model: article, class: "post-form" do |form| %>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
+  </div>
 
-    <div>
-      <%= form.label :status %><br>
-      <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
-    </div>
+  <div class="form-group">
+    <%= form.label :body %>
+    <%= form.text_area :body, class: "form-control" %>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
+  </div>
 
-  
-    <div>
-      <%= form.submit %>
-    </div>
-  <% end %>
-  
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.select :status, Visible::VALID_STATUSES, { selected: article.status || 'public' }, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
