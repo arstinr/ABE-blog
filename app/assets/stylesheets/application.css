@@ -210,7 +210,7 @@ ul.blog-posts {
     list-style-type: none;
     padding: unset;
   	display: flex;
-  	flex-direction: column;
+  	flex-direction: column-reverse;
   	
   	align-items: center;
   	width: 100%;
