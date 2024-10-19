@@ -104,7 +104,7 @@ body {
   	min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .title {
     font-family: var(--font-main);
     color: var(--heading-color);
   	font-weight: 600;
@@ -185,7 +185,7 @@ footer {
     text-decoration: none;
 }
 
-.title h1 {
+.title h1{
     font-size: 1.5em;
   	margin-top: 40vh;
 }
@@ -268,7 +268,7 @@ ul.blog-posts li a:visited {
   font-size: medium;
 }
 
-.post a h1:hover {
+.post a.title:hover {
     color: rgb(37 99 235); 
     transition: color 0s ease;
 }
@@ -354,7 +354,7 @@ ul.blog-posts li a:visited {
   }
   
   
-  .title h1 {
+  .title {
     font-size: 1.5em;
   	margin-top: 35vh;
 }
@@ -458,3 +458,10 @@ ul.blog-posts {
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
+
+.article_date {
+    text-align: left;
+    display: block;
+    width: 100%;
+  }
+  
